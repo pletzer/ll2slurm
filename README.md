@@ -29,7 +29,7 @@ cd ll2slurm.git
 | #@ notification = never                   |                                        |                                          |
 | #@ account_no = `<acct`>                  | #SBATCH -A `<acct`>                    | specify account number                   |
 | #@ wall_clock_limit `<hh:mm:ss`>          | #SBATCH --time `<hh:mm:ss`>            | specify wall clock time                  |
-| #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem-per-node=8192            | specify memory requirement               |
+| #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem=8192                     | specify memory requirement per node      |
 | #@ job_type `<serial or parallel`>        |                                        |                                          |
 | #@ node = `<numnodes`>                    | #SBATCH --nodes `<numnodes`>           | specify number of nodes                  |
 | #@ network.MPI = `<network`>              |                                        |                                          |
