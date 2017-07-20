@@ -25,7 +25,7 @@ cd ll2slurm.git
 | LoadLeveler                               | SLURM                                  | What it means                            |
 |-------------------------------------------|----------------------------------------|------------------------------------------|
 | #@ job_name `<jobname`>                   | #SBATCH -J `<jobname`>                 | specify the job name                     |
-| #@ class = default                        |                                        |                                          |
+| #@ class = General                        |                                        |                                          |
 | #@ group = nesi                           |                                        |                                          |
 | #@ notification = never                   |                                        |                                          |
 | #@ account_no = `<acct`>                  | #SBATCH -A `<acct`>                    | specify account number                   |
@@ -33,11 +33,11 @@ cd ll2slurm.git
 | #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem-per-cpu=8192             | specify memory requirement               |
 | #@ job_type `<serial or parallel`>        |                                        |                                          |
 | #@ node = `<numnodes`>                    | #SBATCH --nodes `<numnodes`>           | specify number of nodes                  |
+| #@ network.MPI = `<network`>              |                                        |
 | #@ tasks_per_nodes = `<numtasks`>         | #SBATCH --ntasks_per_node `<numtasks`> | sepcify the number of MPI tasks per node |
 | #@ output = $(job_name).$(jobid>).out     | #SBATCH -o %j.%N.out                   | specify standard output file             |
 | #@ error = $(job_name).$(jobid>).err      | #SBATCH -e %j.%N.err                   | specify standard error file              |
 | #@ queue                                  |                                        |                                          |
-|-------------------------------------------|----------------------------------------|------------------------------------------|
 
 ## Run commands
 
@@ -46,7 +46,6 @@ cd ll2slurm.git
 | export OMP_NUM_THREADS=32                 |                              | specify the number of OpenMP threads |
 | `<myexec`>                                | srun `<myexec`>              | serial execution                     |
 | poe  `<myexec`>                           | srun `<myexec`>              | parallel execution                   |
-|-------------------------------------------|------------------------------|--------------------------------------|
 
 
 ## Environment variables
@@ -58,4 +57,3 @@ cd ll2slurm.git
 |                                           | $TMP_DIR                               | local file system                        |
 |                                           | $SCRATCH_DIR                           | shared file system                       |
 |                                           | $SLURM_SUBMIT_DIR                      | directory where the job was submitted    |
-|-------------------------------------------|----------------------------------------|------------------------------------------|
