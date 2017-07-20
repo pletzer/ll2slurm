@@ -1,6 +1,5 @@
-# ll2slurm
 
-Contains documentation and examples for users wanting to migrate from LoadLeveler to SLURM
+Documentation and examples for users wanting to migrate from LoadLeveler to SLURM
 
 ## How to access this documentation
 
@@ -30,7 +29,7 @@ cd ll2slurm.git
 | #@ notification = never                   |                                        |                                          |
 | #@ account_no = `<acct`>                  | #SBATCH -A `<acct`>                    | specify account number                   |
 | #@ wall_clock_limit `<hh:mm:ss`>          | #SBATCH --time `<hh:mm:ss`>            | specify wall clock time                  |
-| #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem-per-cpu=8192             | specify memory requirement               |
+| #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem-per-node=8192            | specify memory requirement               |
 | #@ job_type `<serial or parallel`>        |                                        |                                          |
 | #@ node = `<numnodes`>                    | #SBATCH --nodes `<numnodes`>           | specify number of nodes                  |
 | #@ network.MPI = `<network`>              |                                        |                                          |
@@ -54,6 +53,7 @@ cd ll2slurm.git
 | LoadLeveler                               | SLURM                                  | What it means                            |
 |-------------------------------------------|----------------------------------------|------------------------------------------|
 | $(jobid)                                  | $SLURM_JOBID                           | job id                                   |
+| $(job_name)                               | $SLURM_JOB_NAME                        | job name                                 |
 |                                           | $SLURM_JOB_NODELIST                    |                                          |
 |                                           | $TMP_DIR                               | local file system                        |
 |                                           | $SCRATCH_DIR                           | shared file system                       |
