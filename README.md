@@ -18,7 +18,6 @@ cd ll2slurm.git
 | llq `<jobid`>        | sstatus `<jobid`>      | check status                    |
 | llcancel `<jobid`>   | scancel `<jobid`>      | kill job                        |
 |                      | sinfo                  | show status info about platform |
-|----------------------|------------------------|---------------------------------|
 
 
 ## Options
