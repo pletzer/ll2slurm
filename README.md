@@ -4,10 +4,10 @@ Contains documentation and examples for users wanting to migrate from LoadLevele
 
 ## How to access this documentation
 
-'''
+``` bash
 git clone https://github.com/pletzer/ll2slurm.git
 cd ll2slurm.git
-'''
+```
 
 ## Commands
 
@@ -33,8 +33,9 @@ cd ll2slurm.git
 | #@ resources = ConsumerableMemory(8gb)    | #SBATCH --mem-per-cpu=8192             | specify memory requirement               |
 | #@ job_type `<serial or parallel`>        |                                        |                                          |
 | #@ node = `<numnodes`>                    | #SBATCH --nodes `<numnodes`>           | specify number of nodes                  |
-| #@ network.MPI = `<network`>              |                                        |
-| #@ tasks_per_nodes = `<numtasks`>         | #SBATCH --ntasks_per_node `<numtasks`> | sepcify the number of MPI tasks per node |
+| #@ network.MPI = `<network`>              |                                        |                                          |
+| #@ tasks_per_nodes = `<numtasks`>         | #SBATCH --ntasks_per_node `<numtasks`> | specify the number of MPI tasks per node |
+| #@ parallel_threads = `<numthreads`>      | #SBATCH --cpus_per_task `<numthreads`> | sets OMP_NUM_THREADS=`<numthreads`>      |
 | #@ output = $(job_name).$(jobid>).out     | #SBATCH -o %j.%N.out                   | specify standard output file             |
 | #@ error = $(job_name).$(jobid>).err      | #SBATCH -e %j.%N.err                   | specify standard error file              |
 | #@ queue                                  |                                        |                                          |
